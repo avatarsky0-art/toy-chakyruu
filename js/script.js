@@ -31,11 +31,14 @@ const playBtn= document.getElementById('playBtn');
 document.body.classList.add('locked');
 
 document.getElementById('openBtn').addEventListener('click', () => {
-  cover.classList.add('hide');
-  document.body.classList.remove('locked');
+  cover.classList.add('opening');                 // капкак ачылат
   audio.volume = 0.6;
   audio.play().then(() => playBtn.classList.add('playing')).catch(()=>{});
-  setTimeout(() => cover.remove(), 1000);
+  setTimeout(() => {
+    cover.classList.add('hide');
+    document.body.classList.remove('locked');
+  }, 700);
+  setTimeout(() => cover.remove(), 1700);
 });
 
 /* ---------- Музыка ---------- */
